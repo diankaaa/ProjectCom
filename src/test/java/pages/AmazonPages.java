@@ -13,7 +13,7 @@ public class AmazonPages {
     public AmazonPages() {
         PageFactory.initElements(Driver.getDriver(),this);
 }
- @FindBy(xpath = "//input[@type='text']")
+  @FindBy(xpath = "//input[@type='text']")
     public WebElement searchBox;
 
 

@@ -17,7 +17,15 @@ public class Hooks {
     @Before
     public void setUp() {
         Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        String url = null;
+        System.out.println(System.getProperty("environment_url"));
+        if(System.getProperty("environment_url")!=null){
+            url = System.getProperty("environment_url");
+        }else{
+            url = ConfigurationReader.getProperty("url");
+        }
+
+        Driver.getDriver().get(url);
 
         if (ConfigurationReader.getProperty("browser").contains("headless")) {
             Driver.getDriver().manage().window().setSize(new Dimension(1440, 900));
