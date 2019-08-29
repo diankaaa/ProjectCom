@@ -3,6 +3,7 @@ package step_definitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import pages.LoginPage;
 
 public class LogInStepDef {
@@ -13,6 +14,7 @@ public class LogInStepDef {
     public void user_is_on_the_home_page() {
        loginPage.user.isDisplayed();
        waitt();
+
     }
 
     @When("user logs in")
@@ -25,24 +27,28 @@ public class LogInStepDef {
     public void user_click_on_the_Log_in_as_a_User_button() {
         loginPage.LogInAsAUser.click();
         waitt();
+
     }
 
     @Then("user clicks on the Log in as a Product owner button")
     public void user_clicks_on_the_Log_in_as_a_Product_owner_button() {
         loginPage.LogInAsPO.click();
         waitt();
+
     }
 
     @Then("user PO page is displayed on the left side")
     public void user_PO_page_is_displayed_on_the_left_side() {
         loginPage.user.isDisplayed();
         waitt();
+        Assert.assertEquals(loginPage.user.getText(),"PO page 1");
     }
 
     @Then("user Gov Staff page is displayed on the left side")
     public void user_Gov_Staff_page_is_displayed_on_the_left_side() {
         loginPage.user.isDisplayed();
         waitt();
+        Assert.assertEquals(loginPage.user.getText(),"Gov Staff page 1");
     }
 
     @Then("user clicks on Log out button")
@@ -60,6 +66,7 @@ public class LogInStepDef {
     public void user_page_is_displayed_on_the_left_side() {
         loginPage.user.isDisplayed();
         waitt();
+        Assert.assertEquals(loginPage.user.getText(),"User page 1");
     }
 
     @Then("user clicks on the Log in as Government staff Admin as a button")
